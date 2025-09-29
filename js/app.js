@@ -31,7 +31,7 @@ document.addEventListener("keydown",(event)=>{
     {   
         giveInput(event.key);
     }
-    else if(["+","-","*","/","."].includes(event.key))
+    else if(["+","-","*","/",".","%"].includes(event.key))
     {
         giveInput(event.key);
     }
