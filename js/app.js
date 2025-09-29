@@ -4,7 +4,10 @@ const display = document.getElementById("display");
     buttons.forEach(btn => {
         btn.addEventListener("click", () => {
             const value = btn.innerText;
-
+            giveInput(value);
+        });
+    });
+     function giveInput(value){
             if (value === "AC") {
                 display.value = "";
             } else if (value === "=") {
@@ -20,5 +23,27 @@ const display = document.getElementById("display");
             } else {
                 display.value += value;
             }
-        });
-    });
+        }
+
+
+document.addEventListener("keydown",(event)=>{
+    if(!isNaN(event.key))
+    {   
+        giveInput(event.key);
+    }
+    else if(["+","-","*","/","."].includes(event.key))
+    {
+        giveInput(event.key);
+    }
+    else if(event.key==="Enter"){
+         giveInput("=");
+    }
+    else if(event.key==="Backspace")
+    {
+         giveInput("⌫");
+    }
+    else if(event.key==="Delete")
+    {
+        giveInput("AC");
+    }
+});
